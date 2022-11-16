@@ -64,37 +64,37 @@ public class Player : MonoBehaviour
             return;
         }
 
-        //x = Input.GetAxisRaw("Horizontal");
-        //if ((isTouchLeft && x == -1) || (isTouchRight && x == 1))
-        //{
-        //    x = 0;
-        //}
-
-        //y = Input.GetAxisRaw("Vertical");
-        //if ((isTouchTop && y == 1) || (isTouchBottom && y == -1))
-        //{
-        //    y = 0;
-        //}
-
-        x = joystick.Horizontal;
-        if ((isTouchLeft && x < 0) || (isTouchRight && x > 0))
+        x = Input.GetAxisRaw("Horizontal");
+        if ((isTouchLeft && x == -1) || (isTouchRight && x == 1))
         {
             x = 0;
         }
 
-        y = joystick.Vertical;
-        if ((isTouchTop && y > 0) || (isTouchBottom && y < 0))
+        y = Input.GetAxisRaw("Vertical");
+        if ((isTouchTop && y == 1) || (isTouchBottom && y == -1))
         {
             y = 0;
         }
+
+       //x = joystick.Horizontal;
+       //if ((isTouchLeft && x < 0) || (isTouchRight && x > 0))
+       //{
+       //    x = 0;
+       //}
+       //
+       //y = joystick.Vertical;
+       //if ((isTouchTop && y > 0) || (isTouchBottom && y < 0))
+       //{
+       //    y = 0;
+       //}
         
         animator.SetInteger("x", (int)x);
         fireCurrent += Time.deltaTime;
         
-        //if (Input.GetButton("Fire1"))
-        //{
-        //    Fire();
-        //}
+        if (Input.GetButton("Fire1"))
+        {
+            Fire();
+        }
 
         if (isFire)
         {
