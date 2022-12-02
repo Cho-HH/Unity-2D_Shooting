@@ -67,7 +67,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         sec -= Time.deltaTime;
-        timeText.text = "보스출현까지\n" + string.Format("{0:D1}:{1:D2}", min, (int)sec);
+        timeText.text = "보스출현까지\n" + string.Format("{0:D2}:{1:D2}", min, (int)sec);
         if ((int)sec < 0)
         {
             if (min == 0)
